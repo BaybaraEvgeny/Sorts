@@ -1,5 +1,5 @@
 # Sorts
-
+**AddressSanitizer** showed no problems.
 **Gprof**  results for 10,000-strings:
 
 **Bubble sort**
