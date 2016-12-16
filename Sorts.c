@@ -13,7 +13,7 @@ void merge(char **arr, int n, int j, int m);
 void main(int argc, char **argv){
 
  FILE *file; 
- if ((file = fopen(argv[2],"r")) == NULL){ //открываем файл и проверяем.
+ if ((file = fopen(argv[2],"r")) == NULL){
   printf("Не получается открыть файл.\n");
   exit(1);
  }
