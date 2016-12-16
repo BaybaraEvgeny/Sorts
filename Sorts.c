@@ -18,26 +18,26 @@ void main(int argc, char **argv){
   exit(1);
  }
 
- int size = atoi(argv[1]); //получаем количество строк,которое нужно проверять.
+ int size = atoi(argv[1]);
  char ch = 0;
  int sum = 0;  
- while(ch!=EOF){ //узнаем реальное количество строк.
+ while(ch!=EOF){ 
   ch = fgetc(file);
   if(ch == '\n'){ 
   sum++;
   } 
  }
  
- if (size > sum){ //если реальное количество строк меньше того количества,которое нужно прочитать.
+ if (size > sum){
   size = sum;
  }
 
  rewind(file);
 
- int *len = malloc(sizeof(int)*(size)); // выделяем память под количество символов в каждой строке.
+ int *len = malloc(sizeof(int)*(size));
  
  int i = 0, k = 0,f = 0; 	
- while(f!=size){ //заполняем массив количествами символов в каждой строке.
+ while(f!=size){ 
   ch = fgetc(file);	
   k++;
   if (ch == '\n' || ch == '\0'){
@@ -49,12 +49,12 @@ void main(int argc, char **argv){
  }
  
 
- char **str = malloc(sizeof(char*)*(size));//выделяем память для самих строками.
+ char **str = malloc(sizeof(char*)*(size));
 
  rewind(file);
 
  int p = 0;
- while(p < size){ //заполняем массив строками(по символу).
+ while(p < size){ 
   int t = 0;
   str[p] = malloc(sizeof(char)*(len[p]));
   for(t = 0; t < len[p]-1; t++){
@@ -70,7 +70,7 @@ void main(int argc, char **argv){
 printf("\nвыберите способ сортировки:\n1) bubble sort\n2) insertion sort\n3) quick sort\n4) merge sort\n"); 
 
  int t = 0,w = 0;
- while(!w){ //пользователь выбирает способ сортировки.
+ while(!w){ 
   scanf("%d",&t);
   switch(t){
    case 1:
@@ -99,19 +99,19 @@ printf("\nвыберите способ сортировки:\n1) bubble sort\n2
   }
  }
  
- printf("Отсортированный массив:\n"); //программа выводит отсортированный массив.
+ printf("Отсортированный массив:\n"); 
  for (i = 0; i < size; i++){
   printf("%s\n", str[i]);
  }
 
- for (i = 0; i < size; i++)//освобождаем всю выделенную память.
+ for (i = 0; i < size; i++)
   free(str[i]);
 
  free(len);
  free(str);
 }
 
-int comparator (char *x, char *y){ //компаратор для строк.
+int comparator (char *x, char *y){ 
  int i = 0;
  while((x[i]!= '\0')&&(y[i]!= '\0')){
   if (x[i] > y[i]){
@@ -131,7 +131,7 @@ int comparator (char *x, char *y){ //компаратор для строк.
  }
 
 
-void bubblesort(char **str, int size){ //сортировка пузыриком.
+void bubblesort(char **str, int size){ 
  int x = 0,y = 0;
  for (x = 0; x < size-1; x++){
   for (y = 0; y < size-1; y++){
@@ -144,7 +144,7 @@ void bubblesort(char **str, int size){ //сортировка пузыриком
  }
 }
 
-void insertion(char **str, int size){ //сортировка вставками.
+void insertion(char **str, int size){ 
  int x = 0,y = 0;
  for(x = 1; x < size; x++){
   for(y = x; y > 0 && comparator(str[y-1], str[y]) > 0; y--){
@@ -155,7 +155,7 @@ void insertion(char **str, int size){ //сортировка вставками.
  }
 }
 
-void quicksort(char **str, int size){ //быстрая сортировка.
+void quicksort(char **str, int size){ 
  char *elem;
  elem = str[size / 2];
  int x = 0, y = size;
@@ -178,7 +178,7 @@ void quicksort(char **str, int size){ //быстрая сортировка.
   quicksort(str + x, size - x);
 }
 
-void mergesort(char **str, int n, int m){//Сортировка слиянием.
+void mergesort(char **str, int n, int m){
  if (n < m){
   int q = (m+n)/2;
   mergesort(str, n, q);
