@@ -1,8 +1,9 @@
 # Sorts
 **AddressSanitizer** showed no problems.
 
-10000 strings test:
-####Gprof
+15000 strings test:
+
+#####Gprof
 
 **Quick sort**
 
