@@ -3,7 +3,7 @@
 
 15000 strings test:
 
-#####Gprof
+###Gprof
 
 **Quick sort**
 
